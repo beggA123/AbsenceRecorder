@@ -18,13 +18,8 @@ class Division {
     #if DEBUG
     static func createDivision(code: String, of size: Int) -> Division {
         let division = Division(code: code)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-        if let birthday = dateFormatter.date(from: "2005-01-08") {
-            for _ in 0..<size {
-                division.students.append(Student(forename: "Alistair", surname: "Begg", birthday: birthday))
-            }
+        for i in 1...size {
+            division.students.append(Student(forename: "Firstname\(i)", surname: "Surname\(i)", birthday: Date()))
         }
         
         return division
